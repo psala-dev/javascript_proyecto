@@ -1,18 +1,9 @@
-/*
-const productos = []
-const agregarProducto = () => {
-    const id = prompt("ingresa el id del producto");
-    const nombre = prompt("ingrese el nombre del producto");
-    const producto = {id: id, nombre: nombre};
-    // podria ser escrito asi: const producto = {id, nombre}
-    productos.push(producto);
-}
-agregarProducto();
-console.log(productos);
-*/
-
+let intentos = 0;
 // Solicita nombre al usuario.
 let nombre = prompt("Bienvenida/o, ingresá tu nombre para continuar.");
+if(nombre == ""){
+    alert("Ingresá tu nombre, por favor.")
+}
 // Solicita cantidad de libros a ingresar
 let cantidadLibros = parseInt(prompt("¿Cuántos libros querés ingresar?"));
 // Guarda datos solicitados
@@ -20,17 +11,24 @@ const listadoLibros = []
 const agregarLibro = () => {
     // Solicita titulo
     const titulo = prompt("Ingresá el titulo del libro.");
+    if(titulo == ""){
+        alert("Ingresá el título del libro, por favor.")
+    }
     // Solicita autor
     const autor = prompt("Ingresá el nombre del autor.");
+    if(autor == ""){
+        alert("Ingresá el autor del libro, por favor.")
+    }
     // Solicita prioridad
     const prioridad = parseInt(prompt("Ingresá el numero de prioridad asignado segun la siguiente escala 1(muy alta) 5 (muy baja)."));
     const favoritos = {prioridad, titulo, autor};
     listadoLibros.push(favoritos)
 }
+// Itera de acuerdo al numero ingresado por el usuario
 for(i=0; i<cantidadLibros; i++){
     agregarLibro();
 }
-
+// Muestra en pantalla
 console.log("Bienvenida/o " + nombre + ". Aquí está tu listado:");
 console.table(listadoLibros); 
 
